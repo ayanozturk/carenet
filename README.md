@@ -1,5 +1,12 @@
 # CareNet - Care Home Management
 
+## Install and run
+
+    docker-compose up -d
+    docker-compose exec carenet composer install -o
+    
+Visit http://localhost:9001/
+
 ## Tests
 
 ### Behat
