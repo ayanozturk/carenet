@@ -1,5 +1,8 @@
 # CareNet - Care Home Management
 
+[![Unit Tests](https://travis-ci.org/ayanozturk/carenet.svg?branch=master)](https://travis-ci.org/ayanozturk/carenet)
+[![Coverage](https://coveralls.io/repos/github/ayanozturk/carenet/badge.svg)](https://coveralls.io/github/ayanozturk/carenet)
+
 ## Install and run
 
     docker-compose up -d
