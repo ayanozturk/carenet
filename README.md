@@ -2,6 +2,7 @@
 
 [![Unit Tests](https://travis-ci.org/ayanozturk/carenet.svg?branch=master)](https://travis-ci.org/ayanozturk/carenet)
 [![Coverage](https://coveralls.io/repos/github/ayanozturk/carenet/badge.svg)](https://coveralls.io/github/ayanozturk/carenet)
+[![Dependency Status](https://www.versioneye.com/user/projects/597cf8e40fb24f003ad078b3/badge.svg?style=flat-square)](https://www.versioneye.com/user/projects/597cf8e40fb24f003ad078b3)
 
 ## Install and run
 
