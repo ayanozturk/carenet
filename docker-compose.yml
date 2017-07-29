@@ -1,0 +1,22 @@
+version: '2'
+
+services:
+
+  carenet:
+    image: ayanozturk/carenet:latest
+    volumes:
+      - ./:/var/www/html
+    ports:
+      - "9001:80"
+    depends_on:
+      - carenet-mysql
+    environment:
+      APPLICATION_ENV: local
+
+  carenet-mysql:
+    image: mysql:5
+    ports:
+      - "3309:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: mypassword
+      MYSQL_DATABASE: carenet
