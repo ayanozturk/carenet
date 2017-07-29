@@ -1,5 +1,5 @@
 Feature: Login Functionality
 
-  Scenario: I can login
+  Scenario: Unauthenticated user is redirected to login page
     Given I am on "/"
-    Then I should see "Your application is now ready."
+    Then I should be on "/user/login"
