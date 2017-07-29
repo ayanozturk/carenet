@@ -12,6 +12,8 @@ services:
       - carenet-mysql
     environment:
       APPLICATION_ENV: local
+      BROWSERSTACK_USERNAME: USERNAME
+      BROWSERSTACK_ACCESS_KEY: ACCESS_KEY
 
   carenet-mysql:
     image: mysql:5
@@ -20,3 +22,9 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: mypassword
       MYSQL_DATABASE: carenet
+
+  selenium:
+    image: elgalu/selenium:latest
+    ports:
+      - 4444:24444
+      - 5900:25900
