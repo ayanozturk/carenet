@@ -1,0 +1,13 @@
+default:
+
+  extensions:
+    Behat\MinkExtension:
+      sessions:
+        carenet:
+          browser_stack:
+            capabilities: {"browser" :"Edge", "os": "Windows", "os_version": "10", "browserstack-debug": true, "resolution": "1024x768"}
+  suites:
+    carenet:
+      paths: [ %paths.base%/tests/Behat/Feature ]
+      contexts:
+        - Tests\Behat\Context\FeatureContext
