@@ -1,8 +1,15 @@
 language: php
 dist: precise
+
+cache:
+  directories:
+    - $HOME/.composer/cache
+
 php:
   - '7.1'
+
 install:
   - composer install -o
+
 script:
   - vendor/bin/phpunit
