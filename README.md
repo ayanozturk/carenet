@@ -1,9 +1,10 @@
 # CareNet - Care Home Management
 
+[![SensioLabsInsight](https://insight.sensiolabs.com/projects/0627b924-19fc-4a12-a23c-33271e47475b/big.png)](https://insight.sensiolabs.com/projects/0627b924-19fc-4a12-a23c-33271e47475b)
+
 [![Unit Tests](https://travis-ci.org/ayanozturk/carenet.svg?branch=master)](https://travis-ci.org/ayanozturk/carenet)
 [![Coverage](https://coveralls.io/repos/github/ayanozturk/carenet/badge.svg)](https://coveralls.io/github/ayanozturk/carenet)
 [![Dependency Status](https://www.versioneye.com/user/projects/597cf8e40fb24f003ad078b3/badge.svg?style=flat-square)](https://www.versioneye.com/user/projects/597cf8e40fb24f003ad078b3)
-[![SensioLabsInsight](https://insight.sensiolabs.com/projects/0627b924-19fc-4a12-a23c-33271e47475b/big.png)](https://insight.sensiolabs.com/projects/0627b924-19fc-4a12-a23c-33271e47475b)
 
 ## Install and run
 
