@@ -6,7 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 class SecurityControllerTest extends WebTestCase
 {
-    public function testRedirectToLogin()
+    public function testLoginPageLoad()
     {
         $client = static::createClient();
 
@@ -14,6 +14,18 @@ class SecurityControllerTest extends WebTestCase
 
         $this->assertEquals(200, $client->getResponse()->getStatusCode());
         $this->assertContains('Sign In',
+            $crawler->filter('.container h1')->text()
+        );
+    }
+
+    public function testRegisterPageLoad()
+    {
+        $client = static::createClient();
+
+        $crawler = $client->request('GET', '/register');
+
+        $this->assertEquals(200, $client->getResponse()->getStatusCode());
+        $this->assertContains('Register',
             $crawler->filter('.container h1')->text()
         );
     }

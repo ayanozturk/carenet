@@ -11,3 +11,7 @@ login:
 
 logout:
     path: /logout
+
+register:
+    path:     /register
+    defaults: { _controller: AppBundle:Security:Register }
