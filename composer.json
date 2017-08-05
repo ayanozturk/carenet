@@ -1,6 +1,6 @@
 {
-    "name": "carenet/carenet",
-    "description": "CareNet Platform",
+    "name": "expert/expert",
+    "description": "Expert Platform",
     "license": "GPL-3.0",
 
     "require": {

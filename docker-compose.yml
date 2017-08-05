@@ -2,26 +2,26 @@ version: '2'
 
 services:
 
-  carenet:
-    image: ayanozturk/carenet:latest
+  expert:
+    image: ayanozturk/expert:latest
     volumes:
       - ./:/var/www/html
     ports:
       - "9001:80"
     depends_on:
-      - carenet-mysql
+      - expert-mysql
     environment:
       APPLICATION_ENV: local
       BROWSERSTACK_USERNAME: USERNAME
       BROWSERSTACK_ACCESS_KEY: ACCESS_KEY
 
-  carenet-mysql:
+  expert-mysql:
     image: mysql:5
     ports:
       - "3309:3306"
     environment:
       MYSQL_ROOT_PASSWORD: mypassword
-      MYSQL_DATABASE: carenet
+      MYSQL_DATABASE: expert
 
   selenium:
     image: elgalu/selenium:latest
