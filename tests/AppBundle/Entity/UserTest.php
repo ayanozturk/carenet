@@ -21,23 +21,29 @@ class UserTest extends TestCase
             'updated' => new \DateTime(),
         ];
 
-        $role = new User();
-        $role->setId($data['id']);
-        $role->setFirstName($data['first_name']);
-        $role->setLastName($data['last_name']);
-        $role->setEmail($data['email']);
-        $role->setPassword($data['password']);
-        $role->setUserRoles($data['user_roles']);
-        $role->setUpdated($data['updated']);
-        $role->setCreated($data['created']);
+        $user = new User();
+        $user->setId($data['id']);
+        $user->setFirstName($data['first_name']);
+        $user->setLastName($data['last_name']);
+        $user->setEmail($data['email']);
+        $user->setPassword($data['password']);
+        $user->setUserRoles($data['user_roles']);
+        $user->setUpdated($data['updated']);
+        $user->setCreated($data['created']);
 
-        $this->assertEquals($data['id'], $role->getId());
-        $this->assertEquals($data['first_name'], $role->getFirstName());
-        $this->assertEquals($data['last_name'], $role->getLastName());
-        $this->assertEquals($data['email'], $role->getEmail());
-        $this->assertEquals($data['password'], $role->getPassword());
-        $this->assertEquals($data['user_roles'], $role->getUserRoles());
-        $this->assertEquals($data['updated'], $role->getUpdated());
-        $this->assertEquals($data['created'], $role->getCreated());
+        $this->assertEquals($data['id'], $user->getId());
+        $this->assertEquals($data['first_name'], $user->getFirstName());
+        $this->assertEquals($data['last_name'], $user->getLastName());
+        $this->assertEquals($data['email'], $user->getEmail());
+        $this->assertEquals($data['password'], $user->getPassword());
+        $this->assertEquals($data['user_roles'], $user->getUserRoles());
+        $this->assertEquals($data['updated'], $user->getUpdated());
+        $this->assertEquals($data['created'], $user->getCreated());
+        $this->assertEquals($data['email'], $user->getUsername());
+        $this->assertEquals(['ROLE_USER'], $user->getRoles());
+
+        $user->eraseCredentials();
+        $this->assertNull($user->getPassword());
+        $this->assertNull($user->getSalt());
     }
 }
