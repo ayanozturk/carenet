@@ -18,6 +18,7 @@ class UserRegister extends AbstractType
         $builder->add('first_name', Type\TextType::class);
         $builder->add('last_name', Type\TextType::class);
         $builder->add('email', Type\EmailType::class);
+        $builder->add('password', Type\PasswordType::class);
     }
 
     public function configureOptions(OptionsResolver $resolver)

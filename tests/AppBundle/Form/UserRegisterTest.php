@@ -21,6 +21,7 @@ class UserRegisterTest extends TypeTestCase
             'first_name' => 'Test First Name',
             'last_name'  => 'Test Last Name',
             'email'      => 'testuser@testemail.com',
+            'password'   => 'mypassword',
         ];
 
         $form = $this->factory->create(UserRegister::class);

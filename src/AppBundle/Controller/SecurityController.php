@@ -37,41 +37,20 @@ class SecurityController extends Controller
 
         $user = new Entity\User();
         $form = $this->createForm(Form\Type\UserRegister::class, $user);
-        $form->add('password', PasswordType::class);
 
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $plainPassword = $user->getPassword();
-            $encoder = $this->container->get('security.password_encoder');
-            $encoded = $encoder->encodePassword($user, $plainPassword);
-
-            $user->setPassword($encoded);
-
-            $em = $this->getDoctrine()->getManager();
-
-            $roleRepo = $em->getRepository('AppBundle:Role');
-            $role = $roleRepo->findOneBy([
-                'name' => 'ROLE_USER'
-            ]);
-
-            $user->setUserRoles([$role]);
-            $user->setCreated(new \DateTime());
-            $user->setUpdated(new \DateTime());
-
-            $em->persist($user);
-            $em->flush();
-
+            $userService = $this->container->get('AppBundle\Service\User');
+            $userService->create($user);
             $this->addFlash(
                 'notice',
                 'Registration completed. You can login with your email and password.'
             );
-
             return $this->redirectToRoute('login');
         }
 
         $data['form'] = $form->createView();
-
         return $this->render('security/register.html.twig', $data);
     }
 }
