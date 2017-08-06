@@ -4,3 +4,4 @@ Feature: Homepage
     Given I am on "/"
     Then I should see "Expert Network"
     And I should see "Welcome"
+    And I should see "Login"

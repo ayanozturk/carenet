@@ -13,7 +13,8 @@ class SecurityControllerTest extends WebTestCase
         $crawler = $client->request('GET', '/login');
 
         $this->assertEquals(200, $client->getResponse()->getStatusCode());
-        $this->assertContains('Sign In',
+        $this->assertContains(
+            'Sign In',
             $crawler->filter('.container h1')->text()
         );
     }
@@ -25,7 +26,8 @@ class SecurityControllerTest extends WebTestCase
         $crawler = $client->request('GET', '/register');
 
         $this->assertEquals(200, $client->getResponse()->getStatusCode());
-        $this->assertContains('Register',
+        $this->assertContains(
+            'Register',
             $crawler->filter('.container h1')->text()
         );
     }

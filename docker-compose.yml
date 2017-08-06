@@ -11,7 +11,7 @@ services:
     depends_on:
       - expert-mysql
     environment:
-      APPLICATION_ENV: local
+      EXPERT_ENV: dev
       BROWSERSTACK_USERNAME: USERNAME
       BROWSERSTACK_ACCESS_KEY: ACCESS_KEY
 

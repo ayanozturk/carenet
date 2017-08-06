@@ -33,22 +33,33 @@
                     <a class="navbar-brand" href="/">Expert Network</a>
                 </div>
 
+                {% block navbar_user_menu %}
                 <div id="navbar" class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav">
+                    <ul class="nav navbar-nav navbar-right">
                         {% if is_granted("ROLE_USER") %}
-                            <li>
-                                <a href="{{ path('settings') }}">
-                                    Settings
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                    {{ user.first_name }} {{ user.last_name }}
+                                <span class="caret"></span>
                                 </a>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a href="{{ path('logout') }}">
+                                            Logout
+                                        </a>
+                                    </li>
+                                </ul>
                             </li>
+                        {% else %}
                             <li>
-                                <a href="{{ path('logout') }}">
-                                    Logout
+                                <a href="{{ path('login') }}">
+                                    Login
                                 </a>
                             </li>
                         {% endif %}
                     </ul>
                 </div>
+                {% endblock %}
             </div>
         </nav>
     </div>
