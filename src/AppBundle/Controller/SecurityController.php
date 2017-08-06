@@ -3,10 +3,10 @@
 namespace AppBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
 use AppBundle\Entity;
 use AppBundle\Form;
-use Symfony\Component\Form\Extension\Core\Type\PasswordType;
-use Symfony\Component\HttpFoundation\Request;
+use AppBundle\Service;
 
 /**
  * Class SecurityController
@@ -31,10 +31,6 @@ class SecurityController extends Controller
 
     public function registerAction(Request $request)
     {
-        $data = [];
-        $data['error'] = null;
-        $data['last_username'] = null;
-
         $user = new Entity\User();
         $form = $this->createForm(Form\Type\UserRegister::class, $user);
 
@@ -50,7 +46,8 @@ class SecurityController extends Controller
             return $this->redirectToRoute('login');
         }
 
-        $data['form'] = $form->createView();
-        return $this->render('security/register.html.twig', $data);
+        return $this->render('security/register.html.twig', [
+            'form' => $form->createView()
+        ]);
     }
 }
