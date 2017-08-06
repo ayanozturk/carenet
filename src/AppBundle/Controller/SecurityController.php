@@ -35,10 +35,8 @@ class SecurityController extends Controller
         $data['last_username'] = null;
 
         $user = new Entity\User();
-        $form = $this->createForm(Form\UserRegister::class, $user);
+        $form = $this->createForm(Form\Type\UserRegister::class, $user);
         $form->add('password', PasswordType::class);
-
-
 
         return $this->render('security/register.html.twig', $data);
     }
