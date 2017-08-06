@@ -3,6 +3,9 @@
 namespace AppBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use AppBundle\Entity;
+use AppBundle\Form;
+use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 
 /**
  * Class SecurityController
@@ -30,6 +33,10 @@ class SecurityController extends Controller
         $data = [];
         $data['error'] = null;
         $data['last_username'] = null;
+
+        $user = new Entity\User();
+        $form = $this->createForm(Form\UserRegister::class, $user);
+        $form->add('password', PasswordType::class);
 
 
 
