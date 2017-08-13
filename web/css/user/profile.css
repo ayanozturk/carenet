@@ -1,0 +1,14 @@
+.profile-panel a.button {
+    float: left;
+    cursor: pointer;
+    border: 2px #0084bf;
+    background-color: #0084bf;
+    width: 100%;
+    font-size: 17px;
+    color: #fff;
+    text-align: left;
+    margin: 16px 0 0;
+    padding: 12px 24px;
+    line-height: 24px;
+    border-radius: 2px;
+}
