@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/user/profile.css') }}">
+{% endblock %}
+
+{% block body %}
+    <div class="row">
+        <div class="col-lg-8 profile-main">
+            {{ user.getFirstName() }} {{ user.getLastName() }}
+        </div>
+
+        <div class="col-lg-4 profile-panel">
+            {% if myprofile %}
+                <a class="button">Edit your profile</a>
+                <a class="button">Edit account settings</a>
+            {% endif %}
+        </div>
+
+    </div>
+{% endblock %}

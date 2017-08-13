@@ -27,8 +27,7 @@ class UserTest extends KernelTestCase
         $em->persist(Argument::any())->willReturn(true);
         $em->flush(Argument::any())->willReturn(true);
 
-        $encoder = static::$kernel->getContainer()
-            ->get('security.password_encoder');
+        $encoder = static::$kernel->getContainer()->get('security.password_encoder');
 
         $service = new Service\User($em->reveal(), $encoder);
 
@@ -45,5 +44,20 @@ class UserTest extends KernelTestCase
         $this->assertGreaterThanOrEqual(time(), $user->getCreated()->getTimestamp());
         $this->assertGreaterThanOrEqual(time(), $user->getUpdated()->getTimestamp());
         $this->assertNotEquals('mypassword', $user->getPassword());
+    }
+
+    public function testFindUser()
+    {
+        $userRepository = $this->prophesize(EntityRepository::class);
+        $userRepository->find(1)->willReturn(new User());
+
+        $em = $this->prophesize(EntityManager::class);
+        $em->getRepository("AppBundle:User")->willReturn($userRepository->reveal());
+
+        $encoder = static::$kernel->getContainer()->get('security.password_encoder');
+
+        $service = new Service\User($em->reveal(), $encoder);
+
+        $this->assertInstanceOf(User::class, $service->findById(1));
     }
 }

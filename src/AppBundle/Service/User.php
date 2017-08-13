@@ -40,6 +40,13 @@ class User
         return $this;
     }
 
+    public function findById(int $userId): ?Entity\User
+    {
+        $userRepository = $this->entityManager->getRepository('AppBundle:User');
+
+        return $userRepository->find($userId);
+    }
+
     private function setUserRoles(Entity\User $user): Entity\User
     {
         $roleRepo = $this->entityManager->getRepository('AppBundle:Role');
