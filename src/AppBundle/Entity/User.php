@@ -50,6 +50,13 @@ class User implements UserInterface
      */
     protected $password;
 
+
+    /**
+     * @ORM\ManyToMany(targetEntity="Skill")
+     * @var ArrayCollection|Skill[]
+     */
+    protected $skills;
+
     /**
      * @ORM\ManyToMany(targetEntity="Role")
      * @var Role[]|ArrayCollection
@@ -72,6 +79,7 @@ class User implements UserInterface
     {
         $this->updated = new \DateTime();
         $this->user_roles = new ArrayCollection();
+        $this->skills = new ArrayCollection();
     }
 
     /**
@@ -270,5 +278,27 @@ class User implements UserInterface
     public function eraseCredentials()
     {
         $this->password = null;
+    }
+
+    public function addSkill(Skill $skill): User
+    {
+        $this->skills->add($skill);
+
+        return $this;
+    }
+
+    public function removeSkill(Skill $skill): User
+    {
+        $this->skills->removeElement($skill);
+
+        return $this;
+    }
+
+    /**
+     * @return ArrayCollection|Skill[]
+     */
+    public function getSkills()
+    {
+        return $this->skills;
     }
 }
