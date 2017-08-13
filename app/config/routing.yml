@@ -19,3 +19,10 @@ register:
 profile:
     path:     /profile/{user_id}
     defaults: { _controller: AppBundle:User:Profile }
+
+# ---------------------------------------------
+# API
+# ---------------------------------------------
+api_skills:
+    type:     rest
+    resource: AppBundle\Controller\SkillController
