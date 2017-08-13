@@ -3,7 +3,9 @@
 namespace Tests\AppBundle\Entity;
 
 use AppBundle\Entity\Role;
+use AppBundle\Entity\Skill;
 use AppBundle\Entity\User;
+use Doctrine\Common\Collections\ArrayCollection;
 use PHPUnit\Framework\TestCase;
 
 class UserTest extends TestCase
@@ -45,5 +47,23 @@ class UserTest extends TestCase
         $user->eraseCredentials();
         $this->assertNull($user->getPassword());
         $this->assertNull($user->getSalt());
+    }
+
+    public function testSkills()
+    {
+        $user = new User();
+        $phpSkill = (new Skill())->setId(1)->setName('PHP');
+        $cssSkill = (new Skill())->setId(2)->setName('CSS');
+
+        $user->addSkill($phpSkill);
+        $user->addSkill($cssSkill);
+
+        $userSkills = $user->getSkills();
+        $this->assertInstanceOf(ArrayCollection::class, $userSkills);
+        $this->assertTrue($userSkills->contains($phpSkill));
+        $this->assertTrue($userSkills->contains($cssSkill));
+
+        $user->removeSkill($cssSkill);
+        $this->assertFalse($userSkills->contains($cssSkill));
     }
 }
